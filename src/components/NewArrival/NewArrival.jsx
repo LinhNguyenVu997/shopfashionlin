@@ -19,7 +19,7 @@ class NewArrival extends React.Component {
 
   handleClickCategories = async id => {
     let response = await Axios.get(
-      `http://api.demo.nordiccoder.com/api/categories/${id}/products`
+      `https://nc-shopping-api.herokuapp.com/api/categories/${id}/products`
     );
     this.setState({ productList: response.data.body });
     console.log(this.state.productList);
@@ -27,7 +27,7 @@ class NewArrival extends React.Component {
 
   handleClickAll = async () => {
     let responseAll = await Axios.get(
-      `http://api.demo.nordiccoder.com/api/products`
+      `https://nc-shopping-api.herokuapp.com/api/products`
     );
     this.setState({ productList: responseAll.data.body });
     console.log(this.state.productList);
