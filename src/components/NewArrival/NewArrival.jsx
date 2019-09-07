@@ -47,6 +47,19 @@ class NewArrival extends React.Component {
     console.log("productList nè", this.state.productList);
   };
   render() {
+    if (
+      this.state.categoryList.length === 0 ||
+      this.state.productList.length === 0
+    ) {
+      return (
+        <div className="img-loading">
+          <img
+            src="https://loading.io/spinners/midorikappa/index.loading-gif-icon-animal.svg"
+            alt=""
+          />
+        </div>
+      );
+    }
     const { categoryList, productList, currentFilter } = this.state;
     const { onAddToCart } = this.props;
     return (
