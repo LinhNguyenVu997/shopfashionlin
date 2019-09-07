@@ -18,7 +18,7 @@ class SinglePage extends PureComponent {
 
   componentDidMount = async () => {
     let response = await Axios.get(
-      `http://api.demo.nordiccoder.com/api/products/${this.props.match.params.productId}`
+      `https://nc-shopping-api.herokuapp.com/api/products/${this.props.match.params.productId}`
     );
     this.setState({ productDetail: response.data.body, loading: false });
   };

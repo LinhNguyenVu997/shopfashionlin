@@ -106,7 +106,7 @@ class CategoryMainSort extends PureComponent {
     const params = JSON.stringify(filter);
     // console.log("param", params);
     let response = await Axios.get(
-      `http://api.demo.nordiccoder.com/api/products?filter=${params}`
+      `https://nc-shopping-api.herokuapp.com/api/products?filter=${params}`
     );
     console.log(response);
     const totalProduct = response.data.pagination.total;
@@ -155,7 +155,7 @@ class CategoryMainSort extends PureComponent {
 
   componentDidMount = async () => {
     let response = await Axios.get(
-      `http://api.demo.nordiccoder.com/api/products`
+      `https://nc-shopping-api.herokuapp.com/api/products`
     );
     this.setState({
       ...this.state,
@@ -163,7 +163,9 @@ class CategoryMainSort extends PureComponent {
     });
     this.getProductList(this.state.currentFilter);
 
-    let res = await Axios.get(`http://api.demo.nordiccoder.com/api/categories`);
+    let res = await Axios.get(
+      `https://nc-shopping-api.herokuapp.com/api/categories`
+    );
     this.setState({ categoryList: res.data.body, loading: false });
     console.log("categories nè", this.state.categoryList);
   };
